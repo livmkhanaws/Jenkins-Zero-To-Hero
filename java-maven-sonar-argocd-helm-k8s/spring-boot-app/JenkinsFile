@@ -1,13 +1,12 @@
 pipeline {
 agent {
     docker {
-        image 'docker:24.0.5-cli'
-        args '-v /var/run/docker.sock:/var/run/docker.sock -v $HOME/.m2:/root/.m2'
+        image 'maven:3.9.3-eclipse-temurin-17'
+        args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
     }
 }
 
-
-  stages {
+    stages {
     stage('Checkout') {
       steps {
         sh 'echo passed'
